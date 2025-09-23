@@ -1,17 +1,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
+import { LanguageSwitch } from "@/components/language-switch";
 import { cn } from "@/lib/utils";
 
 const navigationItems = [
-  { id: "hero", label: "Главная" },
-  { id: "models", label: "Модели" },
-  { id: "features", label: "Характеристики" },
-  { id: "contact", label: "Контакты" },
+  { id: "hero", key: "nav.home" },
+  { id: "models", key: "nav.models" },
+  { id: "features", key: "nav.features" },
+  { id: "contact", key: "nav.contact" },
 ];
 
 export function Navigation() {
+  const t = useTranslations();
   const [activeSection, setActiveSection] = useState("hero");
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -78,7 +81,7 @@ export function Navigation() {
                       : "text-white hover:text-cyan-400"
                   )}
                 >
-                  {item.label}
+                  {t(item.key)}
                   {activeSection === item.id && (
                     <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-cyan-400 rounded-full" />
                   )}
@@ -87,18 +90,20 @@ export function Navigation() {
             </div>
           </div>
 
-          {/* CTA кнопка */}
-          <div className="hidden md:block">
+          {/* Language Switch & CTA */}
+          <div className="hidden md:flex items-center gap-4">
+            <LanguageSwitch />
             <Button
               onClick={() => scrollToSection("contact")}
               className="glass-morphism hover:glass-card text-white border-cyan-400/50 hover:border-cyan-400"
             >
-              Связаться
+              {t('nav.cta')}
             </Button>
           </div>
 
           {/* Мобильное меню */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageSwitch />
             <Button
               variant="ghost"
               size="sm"

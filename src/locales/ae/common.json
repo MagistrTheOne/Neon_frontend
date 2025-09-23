@@ -1,0 +1,73 @@
+{
+  "meta.title": "NEON QTG — Enterprise GenAI for MENA",
+  "meta.desc": "On‑prem/hybrid AI platform engineered for compliance and cost efficiency in the Middle East and North Africa region.",
+  "meta.keywords": "enterprise AI, GenAI, MENA, compliance, hybrid AI, NEON QTG, MagistrTheOne",
+
+  "nav.home": "Home",
+  "nav.models": "Models",
+  "nav.features": "Features",
+  "nav.contact": "Contacts",
+  "nav.cta": "Contact",
+
+  "hero.badge": "Enterprise AI Revolution",
+  "hero.lead": "Enterprise-grade neuromachines designed for MENA compliance — from 7B to 5.5Q parameters with regional data residency.",
+  "hero.pill.qt": "Quantum topology",
+  "hero.pill.mgpu": "Multi‑GPU architecture",
+  "hero.pill.cosmos": "Regional supremacy",
+  "hero.cta": "Explore enterprise models",
+
+  "models.title": "4 ENTERPRISE LEVELS",
+  "models.subtitle": "From baseline compliance to enterprise supremacy — full spectrum for MENA organizations",
+  "models.params": "Parameters:",
+  "models.gpu": "GPU:",
+  "models.cost": "Cost:",
+  "models.perf": "Performance:",
+  "models.progress": "Progress",
+  "models.timeline": "Timeline",
+  "models.features": "Features:",
+  "models.use": "Use cases:",
+  "models.ready": "Production‑ready",
+  "models.pick": "Pick the level that fits your enterprise needs",
+
+  "features.title": "COMPLIANCE ALGORITHM",
+  "features.desc": "GDPR/CCPA compliant data processing with quantum topology for MENA regulations",
+  "features.tab.specs": "Compliance Specs",
+  "features.tab.algo": "Algorithm",
+  "features.result": "Algorithm result",
+  "features.result.desc": "NEON QTG compliance algorithm provides:",
+
+  "faq.title": "Enterprise FAQ",
+  "faq.subtitle": "Answers to compliance and technical questions for MENA enterprises",
+
+  "contact.title": "FOUNDER",
+  "contact.subtitle": "MagistrTheOne — Founder of NEON QTG Enterprise Solutions",
+  "contact.role": "Founder of NEON QTG",
+  "contact.bio": "Enterprise AI researcher specializing in compliant, scalable AI solutions for regulated markets. Creator of NEON QTG architecture optimized for MENA compliance requirements.",
+  "contact.cta": "Contact for enterprise demo",
+  "contact.ach": "Enterprise achievements",
+  "contact.stats": "Model levels, Max parameters, GPUs in Level 4, Max cost",
+  "contact.tech": "Technologies",
+  "contact.tech.list": "Quantum topology, Neural networks, AI/ML, GPU Computing",
+  "contact.roadmap": "Enterprise Roadmap",
+
+  "stats.title": "Enterprise metrics",
+  "stats.subtitle": "Performance metrics that matter for enterprise AI",
+  "stats.powers": "Power levels",
+  "stats.params": "Parameters",
+  "stats.cost": "Cost ($)",
+  "stats.acc": "% Accuracy",
+
+  "footer.lead": "Enterprise neuromachines. Compliant AI for the future.",
+  "footer.contacts": "Contacts (UAE)",
+  "footer.project": "Project",
+  "footer.items": "4 levels, 7B to 5.5Q, Compliance‑ready, Cost‑efficient",
+  "footer.made": "Built with ❤️ by MagistrTheOne for MENA",
+  "footer.tag": "NEON QTG — enterprise revolution in AI",
+
+  "crumbs.home": "Home",
+
+  "lang.switch": "Language",
+  "lang.en": "English",
+  "lang.ru": "Русский",
+  "lang.ae": "English (AE)"
+}
