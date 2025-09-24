@@ -1,12 +1,9 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { Mail, MapPin, Calendar, Heart } from "lucide-react";
 
 export function Footer() {
-  const t = useTranslations();
-
   return (
     <footer className="relative py-12 sm:py-16 overflow-hidden">
       {/* Background */}
@@ -29,13 +26,14 @@ export function Footer() {
                 </p>
               </div>
               <p className="text-gray-400 leading-relaxed">
-                {t('footer.lead')}
+                Революционные нейромашины нового поколения. 
+                Будущее искусственного интеллекта уже здесь.
               </p>
             </div>
             
             {/* Contact Info */}
             <div className="space-y-6">
-              <h4 className="text-xl font-semibold text-white">{t('footer.contacts')}</h4>
+              <h4 className="text-xl font-semibold text-white">Контакты</h4>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-cyan-400" />
@@ -43,7 +41,7 @@ export function Footer() {
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin className="w-5 h-5 text-blue-400" />
-                  <span className="text-gray-400">Krasnodar, Russia</span>
+                  <span className="text-gray-400">Краснодар, Россия</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Calendar className="w-5 h-5 text-purple-400" />
@@ -54,19 +52,19 @@ export function Footer() {
             
             {/* Project Info */}
             <div className="space-y-6">
-              <h4 className="text-xl font-semibold text-white">{t('footer.project')}</h4>
+              <h4 className="text-xl font-semibold text-white">Проект</h4>
               <div className="space-y-3">
                 <Badge variant="outline" className="glass-morphism w-full justify-start">
-                  {t('footer.items').split(', ')[0]}
+                  4 уровня нейромашин
                 </Badge>
                 <Badge variant="outline" className="glass-morphism w-full justify-start">
-                  {t('footer.items').split(', ')[1]}
+                  От 7B до 5.5Q параметров
                 </Badge>
                 <Badge variant="outline" className="glass-morphism w-full justify-start">
-                  {t('footer.items').split(', ')[2]}
+                  Квантовая топология
                 </Badge>
                 <Badge variant="outline" className="glass-morphism w-full justify-start">
-                  {t('footer.items').split(', ')[3]}
+                  Космическое превосходство
                 </Badge>
               </div>
             </div>
@@ -79,11 +77,11 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-center md:text-left">
               <p className="text-gray-400 mb-2">
-                {t('footer.made').replace('❤️', '').trim()} <Heart className="w-4 h-4 inline-block text-red-500 mx-1" />
-                MagistrTheOne in Krasnodar
+                Создано с <Heart className="w-4 h-4 inline-block text-red-500 mx-1" /> 
+                MagistrTheOne в Краснодаре
               </p>
               <p className="text-sm text-gray-500">
-                {t('footer.tag')}
+                NEON QTG — революция в области искусственного интеллекта
               </p>
             </div>
             

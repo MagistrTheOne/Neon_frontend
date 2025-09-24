@@ -1,16 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations } from 'next-intl';
 import { Button } from "@/components/ui/button";
 import { LanguageSwitch } from "@/components/language-switch";
 import { cn } from "@/lib/utils";
 
 const navigationItems = [
-  { id: "hero", key: "nav.home" },
-  { id: "models", key: "nav.models" },
-  { id: "features", key: "nav.features" },
-  { id: "contact", key: "nav.contact" },
+  { id: "hero", labelKey: "nav.home" },
+  { id: "models", labelKey: "nav.models" },
+  { id: "features", labelKey: "nav.features" },
+  { id: "contact", labelKey: "nav.contact" },
 ];
 
 export function Navigation() {
@@ -81,7 +81,7 @@ export function Navigation() {
                       : "text-white hover:text-cyan-400"
                   )}
                 >
-                  {t(item.key)}
+                  {t(item.labelKey)}
                   {activeSection === item.id && (
                     <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-cyan-400 rounded-full" />
                   )}
@@ -90,14 +90,18 @@ export function Navigation() {
             </div>
           </div>
 
-          {/* Language Switch & CTA */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Переключатель языка */}
+          <div className="hidden md:block">
             <LanguageSwitch />
+          </div>
+
+          {/* CTA кнопка */}
+          <div className="hidden md:block">
             <Button
               onClick={() => scrollToSection("contact")}
               className="glass-morphism hover:glass-card text-white border-cyan-400/50 hover:border-cyan-400"
             >
-              {t('nav.cta')}
+              {t("nav.cta")}
             </Button>
           </div>
 

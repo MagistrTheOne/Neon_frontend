@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
@@ -91,8 +90,6 @@ const models: ModelData[] = [
 ];
 
 export function ModelsSection() {
-  const t = useTranslations();
-
   return (
     <section id="models" className="py-16 sm:py-20 relative overflow-hidden">
       {/* Background */}
@@ -103,12 +100,13 @@ export function ModelsSection() {
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-            <span className="gradient-text">4 LEVELS</span>
+            <span className="gradient-text">4 УРОВНЯ</span>
             <br />
-            <span className="text-white">NEON QTG</span>
+            <span className="text-white">НЕОН QTG</span>
           </h2>
           <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto">
-            {t('models.subtitle')}
+            От базовой коммерческой модели до космического превосходства — 
+            полный спектр нейромашин для любых задач
           </p>
         </div>
         
@@ -149,19 +147,19 @@ export function ModelsSection() {
                 
                 <div className="space-y-1 text-xs">
                   <div className="flex justify-between">
-                    <span className="text-gray-400">{t('models.params')}</span>
+                    <span className="text-gray-400">Параметры:</span>
                     <span className="text-white font-semibold">{model.parameters}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-400">{t('models.gpu')}</span>
+                    <span className="text-gray-400">GPU:</span>
                     <span className="text-white font-semibold">{model.gpu}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-400">{t('models.cost')}</span>
+                    <span className="text-gray-400">Стоимость:</span>
                     <span className="text-white font-semibold">{model.cost}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-400">{t('models.perf')}</span>
+                    <span className="text-gray-400">Производительность:</span>
                     <span className="text-white font-semibold">{model.performance}</span>
                   </div>
                 </div>
@@ -184,7 +182,7 @@ export function ModelsSection() {
                 <div className="mb-3">
                   <div className="flex items-center gap-2 mb-1">
                     <Clock className="w-3 h-3 text-gray-400" />
-                    <span className="text-xs text-gray-400">{t('models.progress')}</span>
+                    <span className="text-xs text-gray-400">Прогресс</span>
                   </div>
                   <Progress 
                     value={model.progress} 
@@ -200,7 +198,7 @@ export function ModelsSection() {
                 <div className="mb-3">
                   <div className="flex items-center gap-2 mb-1">
                     <Clock className="w-3 h-3 text-gray-400" />
-                    <span className="text-xs text-gray-400">{t('models.timeline')}</span>
+                    <span className="text-xs text-gray-400">Timeline</span>
                   </div>
                   <p className="text-white font-semibold text-sm">{model.timeline}</p>
                 </div>
@@ -212,7 +210,7 @@ export function ModelsSection() {
                 </div>
                 
                 <div className="mb-3">
-                  <h4 className="text-xs font-semibold text-white mb-1">{t('models.features')}</h4>
+                  <h4 className="text-xs font-semibold text-white mb-1">Особенности:</h4>
                   <div className="flex flex-wrap gap-1">
                     {model.features.map((feature, idx) => (
                       <Badge key={idx} variant="outline" className="text-xs px-2 py-0.5">
@@ -223,7 +221,7 @@ export function ModelsSection() {
                 </div>
                 
                 <div className="mb-3">
-                  <h4 className="text-xs font-semibold text-white mb-1">{t('models.use')}</h4>
+                  <h4 className="text-xs font-semibold text-white mb-1">Применение:</h4>
                   <div className="flex flex-wrap gap-1">
                     {model.useCases.map((useCase, idx) => (
                       <Badge key={idx} variant="outline" className="text-xs px-2 py-0.5">
@@ -236,7 +234,7 @@ export function ModelsSection() {
                 {model.level === 1 && (
                   <div className="mt-3 flex items-center gap-2 text-green-400">
                     <CheckCircle className="w-3 h-3" />
-                    <span className="text-xs font-medium">{t('models.ready')}</span>
+                    <span className="text-xs font-medium">Готов к продакшену</span>
                   </div>
                 )}
               </CardContent>
@@ -247,7 +245,7 @@ export function ModelsSection() {
         {/* Bottom CTA */}
         <div className="text-center mt-16 animate-fade-in">
           <p className="text-base sm:text-lg text-gray-400 mb-6">
-            {t('models.pick')}
+            Выберите подходящий уровень для ваших задач
           </p>
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
             <Badge variant="outline" className="glass-morphism px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-lg">

@@ -1,11 +1,11 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { GradientButton } from "@/components/gradient-button";
 import { NeonText } from "@/components/neon-text";
 import { ArrowRight, Zap, Brain, Cpu } from "lucide-react";
+import { useTranslations } from 'next-intl';
 
 export function HeroSection() {
   const t = useTranslations();
@@ -30,7 +30,7 @@ export function HeroSection() {
               className="glass-morphism text-cyan-400 border-cyan-400/50 px-6 py-2 text-lg font-medium"
             >
               <Zap className="w-5 h-5 mr-2" />
-              {t('hero.badge')}
+              {t("hero.badge")}
             </Badge>
           </div>
           
@@ -45,25 +45,25 @@ export function HeroSection() {
           <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-gray-300 mb-6">
             Father of AI
           </h2>
-
+          
           {/* Description */}
           <p className="text-base sm:text-lg md:text-xl text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
-            {t('hero.lead')}
+            {t("hero.lead")}
           </p>
           
           {/* Features */}
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8">
             <div className="glass-card rounded-xl p-3 sm:p-4 flex items-center gap-2 sm:gap-3 hover:glass-morphism transition-all duration-300 group cursor-pointer">
               <Brain className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
-              <span className="text-xs sm:text-sm font-medium group-hover:text-white transition-colors">{t('hero.pill.qt')}</span>
+              <span className="text-xs sm:text-sm font-medium group-hover:text-white transition-colors">{t("hero.pill.qt")}</span>
             </div>
             <div className="glass-card rounded-xl p-3 sm:p-4 flex items-center gap-2 sm:gap-3 hover:glass-morphism transition-all duration-300 group cursor-pointer">
               <Cpu className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400 group-hover:text-blue-300 transition-colors" />
-              <span className="text-xs sm:text-sm font-medium group-hover:text-white transition-colors">{t('hero.pill.mgpu')}</span>
+              <span className="text-xs sm:text-sm font-medium group-hover:text-white transition-colors">{t("hero.pill.mgpu")}</span>
             </div>
             <div className="glass-card rounded-xl p-3 sm:p-4 flex items-center gap-2 sm:gap-3 hover:glass-morphism transition-all duration-300 group cursor-pointer">
               <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-purple-400 group-hover:text-purple-300 transition-colors" />
-              <span className="text-xs sm:text-sm font-medium group-hover:text-white transition-colors">{t('hero.pill.cosmos')}</span>
+              <span className="text-xs sm:text-sm font-medium group-hover:text-white transition-colors">{t("hero.pill.cosmos")}</span>
             </div>
           </div>
           
@@ -74,7 +74,7 @@ export function HeroSection() {
             onClick={() => document.getElementById('models')?.scrollIntoView({ behavior: 'smooth' })}
             className="group"
           >
-            {t('hero.cta')}
+            {t("hero.cta")}
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </GradientButton>
         </div>

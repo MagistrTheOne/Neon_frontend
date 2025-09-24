@@ -1,7 +1,6 @@
 {
   "meta.title": "NEON QTG: Father of AI | A new class of neuromachines",
-  "meta.desc": "Revolutionary NEON QTG neuromachines — 4 power tiers from 7B to 5.5Q parameters. Author: MagistrTheOne | 2025 | Krasnodar",
-  "meta.keywords": "neuromachines, AI, artificial intelligence, NEON QTG, MagistrTheOne",
+  "meta.desc": "Revolutionary NEON QTG neuromachines — 4 power tiers from 7B to 5.5Q parameters.",
 
   "nav.home": "Home",
   "nav.models": "Models",
@@ -10,14 +9,14 @@
   "nav.cta": "Contact",
 
   "hero.badge": "AI Revolution",
-  "hero.lead": "A new class of neuromachines across 4 power tiers — from 7B to 5.5Q parameters. The future of AI is here.",
+  "hero.lead": "A new class of neuromachines across 4 power tiers — from 7B to 5.5Q parameters.",
   "hero.pill.qt": "Quantum topology",
   "hero.pill.mgpu": "Multi‑GPU architecture",
   "hero.pill.cosmos": "Cosmic supremacy",
   "hero.cta": "Explore models",
 
   "models.title": "4 NEON QTG LEVELS",
-  "models.subtitle": "From commercial baseline to cosmic supremacy — full spectrum neuromachines for any task",
+  "models.subtitle": "From commercial baseline to cosmic supremacy — full spectrum for any task",
   "models.params": "Parameters:",
   "models.gpu": "GPU:",
   "models.cost": "Cost:",
@@ -30,19 +29,19 @@
   "models.pick": "Pick the level that fits your needs",
 
   "features.title": "FILTERING ALGORITHM",
-  "features.desc": "Revolutionary data processing technology based on quantum topology",
+  "features.desc": "Revolutionary data processing based on quantum topology",
   "features.tab.specs": "Specs",
   "features.tab.algo": "Algorithm",
   "features.result": "Algorithm result",
   "features.result.desc": "NEON QTG filtering algorithm provides:",
 
   "faq.title": "Frequently Asked Questions",
-  "faq.subtitle": "Answers to the most popular questions about NEON QTG and neuromachines",
+  "faq.subtitle": "Answers to the most popular questions about NEON QTG",
 
   "contact.title": "PROJECT AUTHOR",
-  "contact.subtitle": "MagistrTheOne — creator of revolutionary NEON QTG neuromachines",
+  "contact.subtitle": "MagistrTheOne — creator of NEON QTG",
   "contact.role": "Creator of NEON QTG",
-  "contact.bio": "Researcher in the field of artificial intelligence and quantum computing. Creator of the revolutionary NEON QTG architecture that combines topological methods with neural networks to achieve unprecedented performance.",
+  "contact.bio": "Researcher in AI and quantum computing...",
   "contact.cta": "Contact the author",
   "contact.ach": "Project achievements",
   "contact.stats": "Model levels, Max parameters, GPUs in Level 4, Max cost",
@@ -61,13 +60,8 @@
   "footer.contacts": "Contacts",
   "footer.project": "Project",
   "footer.items": "4 levels, 7B to 5.5Q, Quantum topology, Cosmic supremacy",
-  "footer.made": "Built with ❤️ by MagistrTheOne in Krasnodar",
+  "footer.made": "Built with ❤️ by MagistrTheOne",
   "footer.tag": "NEON QTG — the revolution in AI",
 
-  "crumbs.home": "Home",
-
-  "lang.switch": "Language",
-  "lang.en": "English",
-  "lang.ru": "Русский",
-  "lang.ae": "English (AE)"
+  "crumbs.home": "Home"
 }

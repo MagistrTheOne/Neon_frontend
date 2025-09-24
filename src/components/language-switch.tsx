@@ -1,7 +1,8 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { useRouter, usePathname } from '@/lib/i18n/routing';
+import { useLocale } from 'next-intl';
+import { useTransition } from 'react';
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -9,56 +10,61 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Globe, Check } from "lucide-react";
-import { locales } from "@/i18n";
+import { Globe } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-const localeNames = {
-  en: "English",
-  ru: "Русский",
-  ae: "English (AE)",
-} as const;
+const languages = [
+  { code: 'en', name: 'English', flag: '🇺🇸' },
+  { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+  { code: 'ae', name: 'English (AE)', flag: '🇦🇪' },
+] as const;
 
 export function LanguageSwitch() {
   const router = useRouter();
   const pathname = usePathname();
-  const currentLocale = useLocale();
-  const t = useTranslations();
+  const locale = useLocale();
+  const [isPending, startTransition] = useTransition();
 
-  const switchLocale = (newLocale: string) => {
-    // Store in localStorage for persistence
-    localStorage.setItem("preferred-locale", newLocale);
+  const currentLanguage = languages.find(lang => lang.code === locale) || languages[0];
 
-    // Get the current path without locale prefix
-    const pathWithoutLocale = pathname.replace(/^\/(en|ru|ae)/, "") || "/";
+  const handleLanguageChange = (newLocale: string) => {
+    startTransition(() => {
+      // Сохраняем выбор в localStorage и cookies
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('locale', newLocale);
+        document.cookie = `lang=${newLocale}; path=/; max-age=31536000`; // 1 year
+      }
 
-    // Navigate to the new locale
-    router.push(`/${newLocale}${pathWithoutLocale}`);
+      router.replace(pathname, { locale: newLocale });
+    });
   };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          variant="outline"
+          variant="ghost"
           size="sm"
-          className="glass-morphism border-white/20 hover:border-cyan-400/50 px-3"
+          className="text-white hover:text-cyan-400 gap-2"
+          disabled={isPending}
         >
-          <Globe className="w-4 h-4 mr-2" />
-          <span className="hidden sm:inline">{t('lang.switch')}</span>
-          <span className="sm:hidden">{currentLocale.toUpperCase()}</span>
+          <Globe className="h-4 w-4" />
+          <span className="hidden sm:inline">{currentLanguage.flag}</span>
+          <span className="hidden md:inline">{currentLanguage.name}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="glass-morphism border-white/20">
-        {locales.map((locale) => (
+      <DropdownMenuContent align="end" className="bg-black/90 border-white/20">
+        {languages.map((language) => (
           <DropdownMenuItem
-            key={locale}
-            onClick={() => switchLocale(locale)}
-            className="flex items-center gap-2 cursor-pointer hover:bg-white/10"
+            key={language.code}
+            onClick={() => handleLanguageChange(language.code)}
+            className={cn(
+              "text-white hover:text-cyan-400 hover:bg-white/10 cursor-pointer",
+              locale === language.code && "text-cyan-400 bg-cyan-400/10"
+            )}
           >
-            {currentLocale === locale && <Check className="w-4 h-4 text-cyan-400" />}
-            <span className={currentLocale === locale ? "text-cyan-400" : "text-white"}>
-              {localeNames[locale]}
-            </span>
+            <span className="mr-2">{language.flag}</span>
+            {language.name}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
