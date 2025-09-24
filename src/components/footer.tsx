@@ -2,8 +2,11 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Mail, MapPin, Calendar, Heart } from "lucide-react";
+import { useTranslations } from 'next-intl';
 
 export function Footer() {
+  const t = useTranslations();
+
   return (
     <footer className="relative py-12 sm:py-16 overflow-hidden">
       {/* Background */}
@@ -26,14 +29,13 @@ export function Footer() {
                 </p>
               </div>
               <p className="text-gray-400 leading-relaxed">
-                Революционные нейромашины нового поколения. 
-                Будущее искусственного интеллекта уже здесь.
+                {t("footer.lead")}
               </p>
             </div>
             
             {/* Contact Info */}
             <div className="space-y-6">
-              <h4 className="text-xl font-semibold text-white">Контакты</h4>
+              <h4 className="text-xl font-semibold text-white">{t("footer.contacts")}</h4>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-cyan-400" />
@@ -52,7 +54,7 @@ export function Footer() {
             
             {/* Project Info */}
             <div className="space-y-6">
-              <h4 className="text-xl font-semibold text-white">Проект</h4>
+              <h4 className="text-xl font-semibold text-white">{t("footer.project")}</h4>
               <div className="space-y-3">
                 <Badge variant="outline" className="glass-morphism w-full justify-start">
                   4 уровня нейромашин
@@ -77,7 +79,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-center md:text-left">
               <p className="text-gray-400 mb-2">
-                Создано с <Heart className="w-4 h-4 inline-block text-red-500 mx-1" /> 
+                {t("footer.made")} <Heart className="w-4 h-4 inline-block text-red-500 mx-1" /> 
                 MagistrTheOne в Краснодаре
               </p>
               <p className="text-sm text-gray-500">

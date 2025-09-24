@@ -17,6 +17,7 @@ import {
   BarChart3,
   Atom
 } from "lucide-react";
+import { useTranslations } from 'next-intl';
 
 const features = [
   {
@@ -91,6 +92,8 @@ const algorithmSteps = [
 ];
 
 export function FeaturesSection() {
+  const t = useTranslations();
+
   return (
     <section id="features" className="py-16 sm:py-20 relative overflow-hidden">
       {/* Background */}
@@ -101,12 +104,12 @@ export function FeaturesSection() {
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-            <span className="gradient-text">АЛГОРИТМ</span>
+            <span className="gradient-text">{t("features.title")}</span>
             <br />
             <span className="text-white">ФИЛЬТРАЦИИ</span>
           </h2>
           <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto">
-            Революционная технология обработки данных на основе квантовой топологии
+            {t("features.desc")}
           </p>
         </div>
         
@@ -114,11 +117,11 @@ export function FeaturesSection() {
           <TabsList className="glass-morphism grid w-full grid-cols-2 mb-12">
             <TabsTrigger value="features" className="text-sm sm:text-lg py-3 sm:py-4">
               <Brain className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-              Характеристики
+              {t("features.tab.specs")}
             </TabsTrigger>
             <TabsTrigger value="algorithm" className="text-sm sm:text-lg py-3 sm:py-4">
               <GitBranch className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-              Алгоритм
+              {t("features.tab.algo")}
             </TabsTrigger>
           </TabsList>
           
@@ -213,12 +216,12 @@ export function FeaturesSection() {
                 <CardHeader>
                   <CardTitle className="text-2xl font-bold text-white text-center">
                     <Atom className="w-8 h-8 inline-block mr-3" />
-                    Результат алгоритма
+                    {t("features.result")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
                   <p className="text-lg text-gray-300 mb-6">
-                    Алгоритм фильтрации NEON QTG обеспечивает:
+                    {t("features.result.desc")}
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="glass-morphism rounded-2xl p-6">

@@ -16,8 +16,11 @@ import {
   Code,
   Brain
 } from "lucide-react";
+import { useTranslations } from 'next-intl';
 
 export function ContactSection() {
+  const t = useTranslations();
+
   return (
     <section id="contact" className="py-16 sm:py-20 relative overflow-hidden">
       {/* Background */}
@@ -32,12 +35,12 @@ export function ContactSection() {
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-            <span className="gradient-text">АВТОР</span>
+            <span className="gradient-text">{t("contact.title")}</span>
             <br />
             <span className="text-white">ПРОЕКТА</span>
           </h2>
           <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto">
-            MagistrTheOne — создатель революционных нейромашин NEON QTG
+            {t("contact.subtitle")}
           </p>
         </div>
         
@@ -56,7 +59,7 @@ export function ContactSection() {
                         MagistrTheOne
                       </CardTitle>
                       <p className="text-gray-400 text-lg">
-                        Создатель NEON QTG
+                        {t("contact.role")}
                       </p>
                     </div>
                   </div>
@@ -81,7 +84,7 @@ export function ContactSection() {
                   <div className="pt-4 border-t border-white/10">
                     <p className="text-gray-400 leading-relaxed">
                       Исследователь в области искусственного интеллекта и квантовых вычислений. 
-                      Создатель революционной архитектуры NEON QTG, объединяющей топологические 
+                      {t("contact.bio")} 
                       методы с нейронными сетями для достижения беспрецедентной производительности.
                     </p>
                   </div>
@@ -96,7 +99,7 @@ export function ContactSection() {
                   onClick={() => window.open('mailto:maxonyushko71@gmail.com?subject=NEON QTG - Вопрос по проекту', '_blank')}
                 >
                   <Mail className="w-5 h-5 mr-2" />
-                  Связаться с автором
+                  {t("contact.cta")}
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 
@@ -138,7 +141,7 @@ export function ContactSection() {
                 <CardHeader>
                   <CardTitle className="text-2xl font-bold text-white text-center">
                     <Sparkles className="w-8 h-8 inline-block mr-3" />
-                    Достижения проекта
+                    {t("contact.ach")}
                   </CardTitle>
                 </CardHeader>
                 
@@ -167,7 +170,7 @@ export function ContactSection() {
               <Card className="glass-card border-0">
                 <CardHeader>
                   <CardTitle className="text-xl font-bold text-white text-center">
-                    Технологии
+                    {t("contact.tech")}
                   </CardTitle>
                 </CardHeader>
                 
