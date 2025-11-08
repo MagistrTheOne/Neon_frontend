@@ -12,24 +12,27 @@ interface GradientButtonProps {
   disabled?: boolean;
 }
 
-export function GradientButton({ 
-  children, 
-  onClick, 
+export function GradientButton({
+  children,
+  onClick,
   className = "",
   variant = "primary",
   size = "default",
-  disabled = false
+  disabled = false,
 }: GradientButtonProps) {
-  const variantClasses = {
-    primary: "bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white border-0 shadow-lg hover:shadow-cyan-500/25",
-    secondary: "glass-morphism hover:glass-card text-white border-cyan-400/50 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-500/20",
-    outline: "border-2 border-gradient-to-r from-cyan-500 to-blue-600 bg-transparent text-white hover:bg-gradient-to-r hover:from-cyan-500/10 hover:to-blue-600/10"
+  const variantClasses: Record<string, string> = {
+    primary:
+      "relative bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold shadow-md hover:shadow-cyan-500/25 active:scale-[0.98]",
+    secondary:
+      "relative glass-morphism border border-cyan-400/40 text-white hover:border-cyan-400 hover:bg-white/5 transition-all",
+    outline:
+      "relative border-2 border-transparent bg-clip-border text-white before:absolute before:inset-0 before:rounded-lg before:p-[2px] before:bg-gradient-to-r before:from-cyan-500 before:to-blue-600 before:opacity-60 hover:before:opacity-100 hover:bg-gradient-to-r hover:from-cyan-500/10 hover:to-blue-600/10",
   };
 
-  const sizeClasses = {
+  const sizeClasses: Record<string, string> = {
     sm: "px-4 py-2 text-sm",
     default: "px-6 py-3 text-base",
-    lg: "px-8 py-4 text-lg"
+    lg: "px-8 py-4 text-lg",
   };
 
   return (
@@ -37,20 +40,22 @@ export function GradientButton({
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        "transition-all duration-300 font-semibold group relative overflow-hidden",
+        "relative inline-flex items-center justify-center rounded-lg transition-all duration-300 overflow-hidden",
+        "focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0F]",
         variantClasses[variant],
         sizeClasses[size],
+        disabled && "opacity-60 cursor-not-allowed",
         className
       )}
     >
+      {/* gradient overlay hover for primary */}
+      {variant === "primary" && (
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/30 to-blue-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+      )}
+
       <span className="relative z-10 flex items-center gap-2">
         {children}
       </span>
-      
-      {/* Gradient overlay for hover effect */}
-      {variant === "primary" && (
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      )}
     </Button>
   );
 }

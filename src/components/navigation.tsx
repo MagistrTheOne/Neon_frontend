@@ -1,30 +1,27 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useTranslations } from 'next-intl';
 import { Button } from "@/components/ui/button";
-import { LanguageSwitch } from "@/components/language-switch";
 import { cn } from "@/lib/utils";
 
 const navigationItems = [
-  { id: "hero", labelKey: "nav.home" },
-  { id: "models", labelKey: "nav.models" },
-  { id: "features", labelKey: "nav.features" },
-  { id: "contact", labelKey: "nav.contact" },
+  { id: "hero", label: "About" },
+  { id: "models", label: "Models" },
+  { id: "contact", label: "Contact" },
 ];
 
 export function Navigation() {
-  const t = useTranslations();
   const [activeSection, setActiveSection] = useState("hero");
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
-      // Определяем активную секцию
-      const sections = navigationItems.map(item => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 100;
+
+      const sections = navigationItems.map((item) =>
+        document.getElementById(item.id)
+      );
+      const scrollPosition = window.scrollY + 120;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
@@ -41,79 +38,64 @@ export function Navigation() {
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    if (element) element.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
         isScrolled
-          ? "glass-morphism backdrop-blur-xl border-b border-white/10"
+          ? "bg-black/60 backdrop-blur-xl border-b border-white/10 shadow-lg"
           : "bg-transparent"
       )}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Логотип */}
-          <div className="flex-shrink-0">
-            <button
-              onClick={() => scrollToSection("hero")}
-              className="text-white font-bold text-lg hover:text-cyan-400 transition-colors"
-            >
-              NEON QTG
-            </button>
+          <button
+            onClick={() => scrollToSection("hero")}
+            className="text-white font-light text-lg tracking-tight hover:text-gray-300 transition-colors"
+          >
+            NEON QTG
+          </button>
+
+          <div className="hidden md:flex items-center space-x-8">
+            {navigationItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={cn(
+                  "text-sm font-light tracking-wide transition-colors relative",
+                  activeSection === item.id
+                    ? "text-white"
+                    : "text-gray-400 hover:text-white"
+                )}
+              >
+                {item.label}
+                {activeSection === item.id && (
+                  <div className="absolute -bottom-1 left-0 right-0 h-px bg-white/40" />
+                )}
+              </button>
+            ))}
           </div>
 
-          {/* Навигационные ссылки */}
-          <div className="hidden md:block">
-            <div className="flex items-center space-x-8">
-              {navigationItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={cn(
-                    "text-sm font-medium transition-colors relative",
-                    activeSection === item.id
-                      ? "text-cyan-400"
-                      : "text-white hover:text-cyan-400"
-                  )}
-                >
-                  {t(item.labelKey)}
-                  {activeSection === item.id && (
-                    <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-cyan-400 rounded-full" />
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Переключатель языка */}
-          <div className="hidden md:block">
-            <LanguageSwitch />
-          </div>
-
-          {/* CTA кнопка */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-4">
             <Button
+              variant="outline"
               onClick={() => scrollToSection("contact")}
-              className="glass-morphism hover:glass-card text-white border-cyan-400/50 hover:border-cyan-400"
+              className="glass-morphism text-white border-white/20 hover:border-white/40 transition-colors font-light"
             >
-              {t("nav.cta")}
+              Get Started
             </Button>
           </div>
 
-          {/* Мобильное меню */}
           <div className="md:hidden flex items-center gap-2">
-            <LanguageSwitch />
             <Button
               variant="ghost"
               size="sm"
-              className="text-white hover:text-cyan-400"
+              className="text-white hover:text-gray-300 font-light"
             >
-              Меню
+              Menu
             </Button>
           </div>
         </div>

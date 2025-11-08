@@ -1,7 +1,4 @@
 import type { Metadata } from "next";
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import { set } from 'lodash';
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -16,33 +13,41 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NEON QTG",
-  description: "Revolutionary neuromachines",
+  title: "NEON QTG: Father of AI | Revolutionary Neuromachines",
+  description: "Discover NEON QTG — the neuromachine that represents a quantum leap in artificial intelligence. Four power tiers from 7B to 5.5Q parameters.",
+  keywords: "neuromachines, AI, artificial intelligence, NEON QTG, quantum computing, machine learning",
+  authors: [{ name: "MagistrTheOne" }],
+  creator: "MagistrTheOne",
+  publisher: "NEON QTG",
+  robots: "index, follow",
+  openGraph: {
+    title: "NEON QTG: Father of AI | Revolutionary Neuromachines",
+    description: "Discover NEON QTG — the neuromachine that represents a quantum leap in artificial intelligence.",
+    type: "website",
+    locale: "en_US",
+    siteName: "NEON QTG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NEON QTG: Father of AI | Revolutionary Neuromachines",
+    description: "Discover NEON QTG — the neuromachine that represents a quantum leap in artificial intelligence.",
+    creator: "@MagistrTheOne",
+  },
+  viewport: "width=device-width, initial-scale=1",
+  themeColor: "#000000",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // Providing all messages to the client
-  // side is the easiest way to get started
-  const flatMessages = await getMessages();
-  
-  // Convert flat structure to nested structure for client
-  const messages = Object.entries(flatMessages).reduce(
-    (acc, [key, value]) => set(acc, key, value),
-    {}
-  );
-
   return (
-    <html className="dark">
+    <html lang="en" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        {children}
       </body>
     </html>
   );
